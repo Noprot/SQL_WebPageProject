@@ -1,0 +1,19 @@
+body {
+    background-color: darkkhaki;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+/*button {
+    padding: 20px;
+    color: blueviolet;
+    background-color: black;
+    text-align: center;
+    font-size: 34px;
+    border-radius: 5px;
+    align-content: center;
+}*/
+
+.banaani {
+    font-size: 25px;
+}
