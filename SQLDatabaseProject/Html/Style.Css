@@ -1,24 +1,96 @@
-img {
-    width: 100px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-right: 100px;
+.login-container {
+    width: 100%;
+    height: 250px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.3);
 }
-input[type="text"] {
 
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);
+    border-radius: 10px 10px 60% 60% / 10px 10px 40% 40%;
+    pointer-events: none;
+    z-index: 0; /* Lower than content */
+    /* Glossy highlight: */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    opacity: 0.85;
+}
+.login-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+body {
+    background: #111;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.firework {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: firework-explode 1s ease-out forwards;
+    opacity: 0.8;
+}
+
+@keyframes firework-explode {
+    0% {
+        transform: scale(0.2);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+.textarea {
     border: 2px solid #000000;
     border-radius: 6px;
     padding: 10px;
-    width: 100%;
+    width: 50%;
     box-sizing: border-box;
-}
 
-input[type="password"] {
-    border: 2px solid #000000;
-    border-radius: 6px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
+    transition: padding 0.2s ease, width 0.1s ease;
+
+}
+.textarea:focus {
+    outline: none;
+    padding: 15px;
+    font-size: 120%;
+    width: 70%;
+    transition: 0.1s ease-in-out;
+}
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #131313;
 }
 .submit-button {
     color: #000000;
@@ -27,10 +99,22 @@ input[type="password"] {
     padding: 12px 15px;
     cursor: pointer;
     background-color: transparent; 
-     transition: all 0.3s ease; 
-
+    transition: all 0.1s ease;
 }
 .submit-button:hover {
     background-color: #000000; 
     color: white;
+    border-color: #ffffff;
+}
+
+p {
+    position: absolute;
+    font-size: 15px;
+    top: 1%;
+    left: 0%;
+}
+a {
+    color: #2c57ce;
+    text-decoration: none;
+    font-weight: bold;
 }
