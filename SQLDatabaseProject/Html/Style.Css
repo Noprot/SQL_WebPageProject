@@ -63,7 +63,7 @@ body {
       rgba(0, 255, 0, 0.8) 2px, 
       transparent 2px, 
       transparent 100px);
-  background-size: 100px 100px;
+  background-size: 1000px 1000px;
   transform: perspective(800px) rotateX(60deg);
   animation: moveGrid 3s linear infinite;
   z-index: 0; /* stays behind UI */
@@ -121,10 +121,9 @@ label {
 }
 
 p {
-    position: absolute;
-    font-size: 15px;
-    top: 1%;
-    left: 0%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 a {
     color: #2c57ce;
