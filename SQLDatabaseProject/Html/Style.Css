@@ -34,40 +34,53 @@
 }
 .login-container > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
-
 
 body {
-    background: #111;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+  position: relative;
 }
 
-.firework {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: firework-explode 1s ease-out forwards;
-    opacity: 0.8;
+/* The glowing infinite grid */
+.grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background:
+    repeating-linear-gradient(to right, 
+      rgba(0, 255, 0, 0.8) 0px, 
+      rgba(0, 255, 0, 0.8) 2px, 
+      transparent 2px, 
+      transparent 100px),
+    repeating-linear-gradient(to bottom, 
+      rgba(0, 255, 0, 0.8) 0px, 
+      rgba(0, 255, 0, 0.8) 2px, 
+      transparent 2px, 
+      transparent 100px);
+  background-size: 100px 100px;
+  transform: perspective(800px) rotateX(60deg);
+  animation: moveGrid 3s linear infinite;
+  z-index: 0; /* stays behind UI */
+  filter: drop-shadow(0 0 6px #0f0) drop-shadow(0 0 12px #0f0);
 }
 
-@keyframes firework-explode {
-    0% {
-        transform: scale(0.2);
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
+
+
+/* The grid scroll animation */
+@keyframes moveGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 100px, 100px 0;
+  }
 }
-
-
 
 .textarea {
     border: 2px solid #000000;
@@ -75,7 +88,7 @@ body {
     padding: 10px;
     width: 50%;
     box-sizing: border-box;
-
+    position-anchor: absolute;
     transition: padding 0.2s ease, width 0.1s ease;
 
 }
