@@ -20,11 +20,17 @@ input[type="password"] {
     width: 100%;
     box-sizing: border-box;
 }
-button {
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
+.submit-button {
+    color: #000000;
+    border: black 2px solid;
     border-radius: 10px;
     padding: 12px 15px;
     cursor: pointer;
+    background-color: transparent; 
+     transition: all 0.3s ease; 
+
+}
+.submit-button:hover {
+    background-color: #000000; 
+    color: white;
 }
