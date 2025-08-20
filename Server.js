@@ -16,18 +16,12 @@ let con = mysql.createConnection({
 //connection check
 con.connect(function(err) {
     if (err) throw err;
-    console.log("Connected!");
+    console.log("Connected to MySQL!");
 });
 
+app.post('/login', (req, res) => {
+  const { nimi, password } = req.body;
 
-function send(username, password) {
-    const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
-    con.query(sq, [username, password], function(err, result) {
-        if (err) throw err;
-        if (result.lenght > 0) {
-            console.log("Login successful for user:", username);
-        } else {
-            console.log("Login failed for user:", username);
-        }
-    });
-}
+  if (!nimi || !password) {
+    return res.json({ message: "Both fields are required!" });
+  })
