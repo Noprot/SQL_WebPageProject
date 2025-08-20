@@ -1,6 +1,7 @@
 {
   "name": "sqldatabaseproject",
   "dependencies": {
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "mysql2": "^3.14.3"
   },
@@ -21,6 +22,5 @@
     "url": "https://github.com/Noprot/SQL_WebPageProject/issues"
   },
   "homepage": "https://github.com/Noprot/SQL_WebPageProject#readme",
-  "description": "My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas\r for all the inteligent people!!",
-  "devDependencies": {}
+  "description": "My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas\r for all the inteligent people!!"
 }
