@@ -6,31 +6,31 @@
         <title>Stalker'seer</title>
 
         <link rel="stylesheet" href="register_style.css">
-        <!-- <script src="../Logic.js"></script> -->
+        
 
     </head>
 
     <body>
 
-        <div class="Register-container">
+        <div class="register-container">
             <h2>Register an account</h2>
             
-            <form action="">
-                <label for="email">Email<em style="color: red;">*</em></label>
-                <input class="textarea" type="text" id="email" name="username" placeholder="Enter your username or email" />
+            <form>
                 
                 <label for="username">Username / not necessary</label>
                 <input class="textarea" type="text" id="username" name="username" placeholder="Enter your username or email" />
-                
+               
+                <label for="email">Email<em style="color: red;">*</em></label>
+                <input class="textarea" type="email" id="email" name="email" placeholder="Enter your email" required/>
+
                 <label for="password">Password<em style="color: red;">*</em></label>
-                <input class="textarea" type="password" id="Password" name="password" placeholder="Enter your password" />
+                <input class="textarea" type="password" id="Password" name="password" placeholder="Enter your password" required/>
 
                 <button type="submit" class="submit-button">Submit</button>
             </form>
 
-            <p>have an account Go
-                <a href="index.html">log in</a>!!
-            </p>
+            <a href="index.html">Already have an account login!</a>
+
         </div>
 
         <div class="grid"></div>

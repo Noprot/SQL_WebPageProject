@@ -5,7 +5,7 @@ let mysql = require('mysql2');
 
 let app = express();
 
-//mysql database connection
+// Connect to MySQL (XAMPP)
 let con = mysql.createConnection({
   host: "localhost",
   user: "nooa",
