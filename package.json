@@ -1,5 +1,26 @@
 {
+  "name": "sqldatabaseproject",
   "dependencies": {
+    "express": "^5.1.0",
     "mysql2": "^3.14.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noprot/SQL_WebPageProject.git"
+  },
+  "version": "1.0.0",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Noprot / No#",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noprot/SQL_WebPageProject/issues"
+  },
+  "homepage": "https://github.com/Noprot/SQL_WebPageProject#readme",
+  "description": "My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas\r for all the inteligent people!!",
+  "devDependencies": {}
 }
