@@ -1,5 +1,3 @@
-
-
 window.onload = function() {
 
     console.log("Script starter successfully!");
@@ -19,7 +17,9 @@ window.onload = function() {
         });
 
         const result = await response.text();
-        console.log(result);
+
         alert('Form submitted! Check console for backend response.');
+        console.log('Response from server:', result);
+
     });
 }
