@@ -18,7 +18,7 @@ let dbcon = mysql.createConnection({
 
 //connection check
 dbcon.connect(function(err) {
-    if (err) throw err;
+  if (err) throw err;
     console.log("Connected to MySQL!");
 });
 
@@ -28,6 +28,17 @@ app.post("/submit-form", (req, res) => {
 
     console.log(`Received username: ${username}, password: ${password}`);
     res.send("Form received successfully!");
+
+    
+
+    //sql command
+    let sql = "INSERT INTO users (username) VALUEs (?)";
+
+    dbcon.query(sql, [username], function (err, result){
+       if (err) throw err;
+       console.log(`inserted into users | username: ${result.username}`, `id: ${result.insertId}`);
+    });
+
 })
 
 
