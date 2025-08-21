@@ -1,39 +1,25 @@
-const { json } = require("express");
+
 
 window.onload = function() {
 
     console.log("Script starter successfully!");
-    const loginForm = document.querySelector('.login-container form');
+    const loginForm = document.getElementById("login-form");
     console.log("Login form found:", loginForm);
 
     loginForm.addEventListener("submit", async(e) => {
         e.preventDefault();
-
-        const formdata = new fetch(loginForm)
-        const data = Object.fromEntries(formdata.fromEntries());
         
-        const res = await fetch("/login", {
-            method: "post",
-            headers: { "content-type": "application/json"},
+        const formdata = new FormData(loginForm);
+        const data = Object.fromEntries(formdata.entries());
+
+        const response = await fetch('http://localhost:3000/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
-        })
+        });
 
-
-        const result = await res.json();
-        
-
-
-
-        
-
-
-
-
-
-
-        console.log("");
-        console.log("username:", loginForm.username.value);
-        console.log("password:", loginForm.password.value);
-        console.log("Form submitted successfully!");
+        const result = await response.text();
+        console.log(result);
+        alert('Form submitted! Check console for backend response.');
     });
 }

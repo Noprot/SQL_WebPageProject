@@ -48,12 +48,7 @@ body {
     animation-duration: 26s;
 }
 
-/* Floating motion */
-@keyframes move {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(50px, -50px) scale(1.2); }
-    100% { transform: translate(-50px, 50px) scale(1); }
-}
+
 
 /* Login Form Container */
 .login-container {

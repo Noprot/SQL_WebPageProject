@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "node server.js"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "node test.js"
+		},
+		{
+			"type": "shell",
+			"command": "echo 'Running SQL script'",
+			"problemMatcher": [],
+			"label": "Run SQL Script",
+			"detail": "This task runs the SQL script in file.sql"
+		}
+	]
+}

@@ -1,3 +1,5 @@
+create database omadatabase;
+
 
 create table users(id int auto_increment primary key, userName varchar(50));
 

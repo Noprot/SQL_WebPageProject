@@ -1,11 +1,14 @@
-//const http = require('node:http');
-
 let express = require('express');
 const bodyParser = require("body-parser");
 let mysql = require('mysql2');
+const cors = require('cors');
 
 let app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
+app.use(express.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true }));
 
 // Connect to MySQL (XAMPP)
 let dbcon = mysql.createConnection({
@@ -21,23 +24,17 @@ dbcon.connect(function(err) {
     console.log("Connected to MySQL!");
 });
 
-app.post("/submit", (req, res) => {
+//submit call on form receive
+app.post("/submit-form", (req, res) => {
     const { username, password } = req.body;
 
-  console.log('Form submitted:', req.body);
-  res.send('Form received!');
+  console.log(`Received username: ${username}, password: ${password}`);
+  res.send(`Form received! ${req.body.username} ${req.body.password}`);
 })
 
-const path = require('path');
+/*const path = require('path');
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
-});
+});*/
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
-
-/*app.post('/login', (req, res) => {
-  const { nimi, password } = req.body;
-
-  if (!nimi || !password) {
-    return res.json({ message: "Both fields are required!" });
-  });*/
