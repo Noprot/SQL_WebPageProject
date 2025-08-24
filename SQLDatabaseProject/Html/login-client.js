@@ -1,16 +1,24 @@
 window.onload = function() {
 
     console.log("Script starter successfully!");
-    const loginForm = document.getElementById("login-form");
-    console.log("Login form found:", loginForm);
+    const Form = document.getElementById("login-form");
+    console.log("Login form found:", Form);
 
-    loginForm.addEventListener("submit", async(e) => {
+    Form.addEventListener("submit", async(e) => {
         e.preventDefault();
         
-        const formdata = new FormData(loginForm);
+        const formdata = new FormData(Form);
         const data = Object.fromEntries(formdata.entries());
 
-        const response = await fetch('http://localhost:3000/submit-form', {
+        let username = data.username;
+        let password = data.password;
+
+        if (!username?.trim() || !password?.trim()) {
+            console.log("Missing input!");
+            return;
+        }
+        
+        const response = await fetch('http://localhost:3000/Login-form', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

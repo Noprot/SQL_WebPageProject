@@ -23,7 +23,7 @@ dbcon.connect(function(err) {
 });
 
 //submit call on form receive
-app.post("/submit-form", (req, res) => {
+app.post("/Register-form", (req, res) => {
     const { username, password } = req.body;
 
     console.log(`Received username: ${username}, password: ${password}`);
@@ -32,13 +32,47 @@ app.post("/submit-form", (req, res) => {
     
 
     //sql command
-    let sql = "INSERT INTO users (username) VALUEs (?)";
+    let sql_user = "INSERT INTO users (username) VALUES (?)";
+    let sql_password = "INSERT INTO passwords (userpassword) VALUES (?)";
 
-    dbcon.query(sql, [username], function (err, result){
+    dbcon.query(sql_user, [username], function (err, result){
        if (err) throw err;
        console.log(`inserted into users | username: ${result.username}`, `id: ${result.insertId}`);
-    });
+    
+    
+      dbcon.query(sql_password, [password], function (err, result){
+        if (err) throw err;
+        console.log(`inserted into passwords | password: ${result.password}`, `id: ${result.insertId}`);
+      });
 
+      });
+})
+
+app.post("/Login-form", (req, res) => {
+  const { username, password } = req.body;
+  
+  let sql_user = "select userName FROM users WHERE userName = (username) values (?)" //users
+  let sql_password = "SELECT userPassword FROM passwords WHERE userPassword = (password) values (?)" //normally i would hash this and compare the hash :)
+
+
+  let out_password;
+  let out_username;
+
+  dbcon.query(sql_user, [username], function(result, err) {
+    if (err) throw err;
+
+
+
+
+  })
+  
+  dbcon.query(sql_password, [password], function(result, err){
+    if (err) throw err;
+
+
+  })
+
+  
 })
 
 
