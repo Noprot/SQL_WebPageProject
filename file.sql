@@ -15,3 +15,23 @@ CREATE TABLE accountinfo (
     account_creation_date DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+
+--database creation commands
+create table users(
+userID int auto_increment primary key not null,
+username varchar(120),
+password char(100),
+creationDate datetime default current_timestamp,
+updatedDate datetime on update current_timestamp
+);
+--
+create table loginHistory(
+historyID int auto_increment primary key not null,
+userID int not null,
+date datetime,
+foreign key (userID) references users(userID)
+on update cascade
+on delete cascade
+);
+--
