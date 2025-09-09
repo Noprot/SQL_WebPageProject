@@ -18,6 +18,8 @@ CREATE TABLE accountinfo (
 
 
 --database creation commands
+create database game_activity_tracker;
+--
 create table users(
 userID int auto_increment primary key not null,
 username varchar(120),
