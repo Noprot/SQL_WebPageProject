@@ -37,3 +37,50 @@ on update cascade
 on delete cascade
 );
 --
+create table dashboard(
+dashboardID int auto_increment primary key not null,
+userID int not null,
+foreign key userID_dashboard (userID) references users(userID)
+on update cascade
+on delete cascade
+);
+--
+create table playeruser(
+playerUserID int auto_increment not null primary key,
+playerUsername varchar(120) not null,
+dashboardID int not null,
+foreign key dashboardID_playeruser (dashboardID) references dashboard(dashboardID)
+);
+--
+create table games(
+gameID int primary key auto_increment not null,
+gameName varchar(120) not null,
+rating float default 0,
+ageRating int,
+price decimal,
+releaseDate datetime,
+details text
+);
+--
+create table platforms(
+platformID int primary key auto_increment not null,
+platformName varchar(120) not null
+);
+--
+create table session(
+sessionID int primary key not null auto_increment,
+playerUserID int not null,
+startTime datetime not null,
+endTime datetime,
+gameID int not null,
+platformID int not null,
+
+foreign key gameID_session (gameID) references games(gameID)
+on delete no action
+on update cascade,
+
+foreign key platformID_session (platformID) references platforms(platformID)
+on delete no action
+on update cascade
+);
+-- adding test data
