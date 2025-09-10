@@ -39,17 +39,20 @@ on delete cascade
 --
 create table dashboard(
 dashboardID int auto_increment primary key not null,
+dashboardName varchar(120),
 userID int not null,
 foreign key userID_dashboard (userID) references users(userID)
 on update cascade
 on delete cascade
 );
 --
-create table playeruser(
-playerUserID int auto_increment not null primary key,
-playerUsername varchar(120) not null,
+create table dashusers(
+dashUserID int auto_increment not null primary key,
+dashUsername varchar(120) not null,
 dashboardID int not null,
-foreign key dashboardID_playeruser (dashboardID) references dashboard(dashboardID)
+foreign key dashboardID_accounts (dashboardID) references dashboard(dashboardID)
+on update cascade
+on delete cascade
 );
 --
 create table games(
@@ -67,19 +70,32 @@ platformID int primary key auto_increment not null,
 platformName varchar(120) not null
 );
 --
+create table accounts(
+accountID int primary key not null auto_increment,
+dashUserID int not null,
+accountName varchar(120) not null,
+platformID int not null,
+foreign key platformID_accounts (platformID) references platforms(platformID)
+on update cascade
+on delete no action,
+foreign key dashUserID_accounts (dashUserID) references dashusers(dashUserID)
+on update cascade
+on delete no action
+);
+--
 create table session(
 sessionID int primary key not null auto_increment,
-playerUserID int not null,
+accountID int not null,
 startTime datetime not null,
 endTime datetime,
 gameID int not null,
 platformID int not null,
 
-foreign key gameID_session (gameID) references games(gameID)
-on delete no action
-on update cascade,
+foreign key accountID_session (accountID) references accounts(accountID)
+on update cascade
+on delete no action,
 
-foreign key platformID_session (platformID) references platforms(platformID)
+foreign key gameID_session (gameID) references games(gameID)
 on delete no action
 on update cascade
 );
