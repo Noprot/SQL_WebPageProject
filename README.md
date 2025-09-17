@@ -2,6 +2,7 @@
 My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas
 for all the inteligent people!!
 
+Etäpäivien työn-ylläpito lista
     D/M
 -- 12/9
 tein validaation databasen käyttäjän luomiseen client:sidilla
