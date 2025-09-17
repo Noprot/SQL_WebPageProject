@@ -2,7 +2,8 @@
 My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas
 for all the inteligent people!!
 
--- 9/12
-tein ja kaikkei hienoa
--- 9/13
-wowo cool
+    D/M
+-- 12/9
+tein validaation databasen käyttäjän luomiseen client:sidilla
+ja lisäsin validaation loginaamiseen backend puolelle.
+-- 18/9
