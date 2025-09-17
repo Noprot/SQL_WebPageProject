@@ -13,13 +13,13 @@ let dbcon = mysql.createConnection({
   host: "localhost",
   user: "nooa",
   password: "dgj321kj4yu!kjqdhjadsddjakh!hjkdas",
-  database: "omaDatabase"
+  database: "game_activity_tracker"
 });
 
 //connection check
-dbcon.connect(function(err) {
+dbcon.connect(function(err, res) {
   if (err) throw err;
-    console.log("Connected to MySQL!");
+    console.log("Connected to MySQL! - $"{}");
 });
 
 //submit call on form receive
