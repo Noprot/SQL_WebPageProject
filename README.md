@@ -8,3 +8,4 @@ Etäpäivien työn-ylläpito lista
 tein validaation databasen käyttäjän luomiseen client:sidilla
 ja lisäsin validaation loginaamiseen backend puolelle.
 -- 18/9
+Lisäsin backendiin salasanojem hashaamis ominaisuuden
