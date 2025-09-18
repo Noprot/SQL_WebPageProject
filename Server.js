@@ -5,13 +5,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-bcrypt.genSalt(saltRounds, (err, salt) => {
-if (err) throw err;
-});
-
-
 let app = express();
-
 
 app.use(cors());
 app.use(express.json());
@@ -36,57 +30,59 @@ dbcon.connect(function(err, res) {
 
 //submit call on form receive - bcrypt password hashing
 app.post("/Register-form", (req, res) => {
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
+  const sql_get_username = "select username from users where username = (?)";
+
+  dbcon.query(sql_get_username, [username], (err, result) => {
+    if (err) throw err;
+    
+    if (result.length > 0) {
+      return res.status(409).send("Username already exists");
+    }
+    
     bcrypt.hash(password, saltRounds, (err, hash) => {
-      password = hash; // chance the password to a hashed one
-    });
+      if (err) throw err;
 
-    console.log(`Received username: ${username}, password: ${password}`);
-    res.send("Form received successfully!");
+      //sql command
+      let sql_register = "INSERT INTO users (username, password) VALUES (?, ?)";
 
-    //sql command
-    let sql_user = "INSERT INTO users (username) VALUES (?)";
-    let sql_password = "INSERT INTO passwords (userpassword) VALUES (?)";
-
-    dbcon.query(sql_user, [username], function (err, result){
-       if (err) throw err;
-       console.log(`inserted into users | username: ${result.username}`, `id: ${result.insertId}`);
-    
-    
-      dbcon.query(sql_password, [password], function (err, result){
+      dbcon.query(sql_register, [username, hash], function (err, result){
         if (err) throw err;
-        console.log(`inserted into passwords | password: ${result.password}`, `id: ${result.insertId}`);
+        console.log(`inserted into users - id: ${result.insertId}`);
       });
-
     });
-})
+  });
+});
 
 app.post("/Login-form", (req, res) => {
   const { username, password } = req.body;
   
-  let sql_user = "select userName FROM users WHERE userName = (username) values (?)" //users
-  let sql_password = "SELECT userPassword FROM passwords WHERE userPassword = (password) values (?)" //normally i would hash this and compare the hash :)
+  const sql_login_details = "select username, password FROM users WHERE username = (?)";
 
-
-  let out_password;
-  let out_username;
-
-  dbcon.query(sql_user, [username], function(result, err) {
+  dbcon.query(sql_login_details, [username], function(err, result) {
     if (err) throw err;
 
-
-
-
+    if (res.length === 0)
+    {
+      return res.send("username doesn't exists");
+    }
+    else
+    {
+      bcrypt.compare(password, result[0].password, (err, bresult) => {
+        if (err) throw err;
+        if (bresult)
+        {
+          console.log(`user [${result[0].username}] succesfully logged in`);
+        }
+        else
+        {
+          return console.log(`login attempt on user ${result[0].username}`);
+        }
+      });
+    }
   })
-  
-  dbcon.query(sql_password, [password], function(result, err){
-    if (err) throw err;
 
-
-  })
-
-  
 })
 
 

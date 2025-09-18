@@ -26,7 +26,7 @@ window.onload = function() {
 
         const result = await response.text();
 
-        alert('Form submitted! Check console for backend response.');
+        //alert('Form submitted! Check console for backend response.');
         console.log('Response from server:', result);
 
     });
