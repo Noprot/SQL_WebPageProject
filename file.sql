@@ -25,32 +25,33 @@ userID int auto_increment primary key not null,
 username varchar(120),
 password char(100),
 creationDate datetime default current_timestamp,
-updatedDate datetime on update current_timestamp
+updatedDate datetime on update current_timestamp,
+isAdmin bool default false
 );
 --
 create table loginHistory(
 historyID int auto_increment primary key not null,
 userID int not null,
-date datetime,
+date datetime default current_timestamp,
 foreign key (userID) references users(userID)
 on update cascade
 on delete cascade
 );
 --
-create table dashboard(
+create table dashboard(--no more
 dashboardID int auto_increment primary key not null,
 dashboardName varchar(120),
 userID int not null,
 foreign key userID_dashboard (userID) references users(userID)
 on update cascade
 on delete cascade
-);
+); --no more
 --
 create table dashusers(
 dashUserID int auto_increment not null primary key,
 dashUsername varchar(120) not null,
-dashboardID int not null,
-foreign key dashboardID_accounts (dashboardID) references dashboard(dashboardID)
+userID int not null,
+foreign key userID_users (userID) references users(userID)
 on update cascade
 on delete cascade
 );
@@ -72,13 +73,21 @@ platformName varchar(120) not null
 --
 create table accounts(
 accountID int primary key not null auto_increment,
-dashUserID int not null,
 accountName varchar(120) not null,
 platformID int not null,
+accountAddedDate datetime default current_timestamp,
 foreign key platformID_accounts (platformID) references platforms(platformID)
 on update cascade
+on delete no action
+);
+--
+create table junction(
+dashUserID int not null,
+accountID int not null,
+foreign key accountID_junction (accountID) references accounts(accountID)
+on update cascade
 on delete no action,
-foreign key dashUserID_accounts (dashUserID) references dashusers(dashUserID)
+foreign key dashUserID_junction (dashUserID) references dashusers(dashUserID)
 on update cascade
 on delete no action
 );

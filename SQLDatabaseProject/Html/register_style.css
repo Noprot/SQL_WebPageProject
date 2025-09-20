@@ -101,7 +101,7 @@ body {
     background-color: #2575fc;
 }
 
-/* Optional: Links */
+
 .register-container a {
     display: block;
     margin-top: 15px;
@@ -112,4 +112,19 @@ body {
 
 .register-container a:hover {
     text-decoration: underline;
+}
+
+.info-box {
+    display: none;
+    background-color: #cf18008a;
+    border: 2px solid #ff0000;
+    padding: 2px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+.info-box.show {
+    display: block;
 }

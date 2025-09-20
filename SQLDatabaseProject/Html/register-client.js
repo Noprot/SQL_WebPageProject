@@ -1,8 +1,17 @@
 window.onload = function() {
-
-    console.log("Script starter successfully!");
     const Form = document.getElementById("register-form");
-    console.log("Login form found:", Form);
+
+    const infoBox = document.getElementById('info-box');
+    const infoMessage = document.getElementById("info-message");
+
+    function showinfo(message)
+    {
+        infoBox.classList.add("show");
+        infoMessage.textContent = message;
+    }
+    function hideInfo() {
+        infoBox.classList.remove("show");
+    }
 
     Form.addEventListener("submit", async(e) => {
         e.preventDefault();
@@ -26,8 +35,8 @@ window.onload = function() {
 
         const result = await response.text();
 
-        //alert('Form submitted! Check console for backend response.');
+        showinfo(result)
+        
         console.log('Response from server:', result);
-
     });
 }

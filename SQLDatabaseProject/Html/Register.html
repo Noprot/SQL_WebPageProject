@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Stalker'seer</title>
+        <title>Register Page</title>
 
         <link rel="stylesheet" href="register_style.css">
         
@@ -22,6 +22,10 @@
 
         <div class="register-container">
             <h2>Register an account</h2>
+
+            <div class="info-box" id="info-box">
+                <p id="info-message">s</p>
+            </div>
             
             <form id="register-form">
                 
@@ -29,7 +33,7 @@
                 <input class="textarea" type="text" id="username" name="username" placeholder="Enter your username" required />
 
                 <label for="password">Password<em style="color: red;">*</em></label>
-                <input class="textarea" type="password" id="password" name="password" placeholder="Enter your password" required/>
+                <input class="textarea" type="password" id="password" name="password" placeholder="Enter your password" required minlength="5"/>
 
                 <button type="submit" class="submit-button">Submit</button>
             </form>

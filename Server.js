@@ -21,7 +21,7 @@ let dbcon = mysql.createConnection({
 
 //connection check
 const starttime = Date.now();
-dbcon.connect(function(err, res) {
+dbcon.connect(function(err) {
   if (err) throw err;
   
   const ping = Date.now() - starttime
@@ -49,7 +49,7 @@ app.post("/Register-form", (req, res) => {
 
       dbcon.query(sql_register, [username, hash], function (err, result){
         if (err) throw err;
-        console.log(`inserted into users - id: ${result.insertId}`);
+        console.log(`new user created - id: ${result.insertId}`);
       });
     });
   });
@@ -58,32 +58,39 @@ app.post("/Register-form", (req, res) => {
 app.post("/Login-form", (req, res) => {
   const { username, password } = req.body;
   
-  const sql_login_details = "select username, password FROM users WHERE username = (?)";
+  const sql_login_details = "select userID, username, password FROM users WHERE username = (?)";
 
   dbcon.query(sql_login_details, [username], function(err, result) {
     if (err) throw err;
-
-    if (res.length === 0)
+    //console.log(result)
+    if (result.length === 0)
     {
-      return res.send("username doesn't exists");
+      console.log(`incorrect Login information`);
+      res.send("incorrect Login Information!!")
+      return;
     }
-    else
-    {
-      bcrypt.compare(password, result[0].password, (err, bresult) => {
-        if (err) throw err;
-        if (bresult)
-        {
-          console.log(`user [${result[0].username}] succesfully logged in`);
-        }
-        else
-        {
-          return console.log(`login attempt on user ${result[0].username}`);
-        }
-      });
-    }
+  
+    bcrypt.compare(password, result[0].password, (err, bresult) => {
+      if (err) throw err;
+      if (bresult)
+      {
+        console.log(`user [${result[0].username}] succesfully logged in`);
+        LogLoginDateToHistory(result[0].userID)
+      }
+      else
+      {
+        return console.log(`login attempt on user ${result[0].username}`);
+      }
+    });  
   })
-
 })
 
-
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+
+function LogLoginDateToHistory(userID)
+{
+  const sql_login = "INSERT INTO loginhistory (userID) values (?)";
+  dbcon.query(sql_login, [userID], (err) => {
+    if (err) throw err;
+  })
+}

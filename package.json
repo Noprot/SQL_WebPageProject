@@ -14,7 +14,8 @@
   "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "Noprot / No#",
@@ -22,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/Noprot/SQL_WebPageProject/issues"
   },
-  "homepage": "https://github.com/Noprot/SQL_WebPageProject#readme"
+  "homepage": "https://github.com/Noprot/SQL_WebPageProject#readme",
+  "devDependencies": {
+    "@eslint/css": "^0.11.0",
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0"
+  }
 }
