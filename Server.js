@@ -1,4 +1,33 @@
 const express = require('express');
+const session = require('express-session')
+
+let keys = [
+  "sjhdsadasjhksdajkhsdhkjdhjksajdkhsaweadsadasdvfnvnv",
+  "sdjopjdsahduahcsbhrbsugbrgvfpchauicbfefesvsf3424235",
+  "dopahciughavceuapso+zokp mx x zhdvuydgacpafdfsdfsfs",
+  "apoåcaiuohiarbjhbvdfcyrzf zhbdxivpåuviuxbchsbcugczusgcjhgz",
+  "sdjopjdsahduahcsbhrbsugbrgvfpchauicbfefesvsf3424235",
+  "dopahciughavceuapso+zokp mx x zhdvuydgacpafdfsdfsfs",
+  "apoåcaiuohiarbjhbvdfcyrzf zhbdxivpåuviuxbchsbcugczusgcjhgz"
+]
+
+function GenerateNewKeys()
+{
+  keys = keys.map(() => crypto.randomUUID().toString())
+}
+
+const sessionOptions = session({
+  secret: keys[Math.floor(Math.random() * keys.length)],
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // should be false whene in local if published change to true
+    maxAge: 1000 * 60 * 60, // 1 tunti
+    //httpOnly: true
+    sameSite: 'lax'
+  }
+});
+
 const mysql = require('mysql2');
 const cors = require('cors');
 

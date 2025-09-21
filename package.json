@@ -4,6 +4,7 @@
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "mysql2": "^3.14.3"
   },
   "repository": {
@@ -15,7 +16,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "mysql-start": "net start minunMySqlDataBaseService",
+    "mysql-stop": "net stop minunMySqlDataBaseService"
   },
   "keywords": [],
   "author": "Noprot / No#",

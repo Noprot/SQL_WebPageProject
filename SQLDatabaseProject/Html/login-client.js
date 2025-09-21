@@ -26,14 +26,18 @@ window.onload = function() {
             console.log("Missing input!");
             return;
         }
-        
-        const response = await fetch('http://localhost:3000/Login-form', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
+        try {
+            const response = await fetch('http://localhost:3000/Login-form',{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
 
-        const result = await response.text();
-        showinfo(result);
+              const result = await response.text();
+            showinfo(result);
+        }
+        catch (err) {
+            showinfo(err);
+        }
     });
 }
