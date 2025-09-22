@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap">
     <link rel="stylesheet" href="dashboard.css">
+
+    <script src="dashboard.js"></script>
 </head>
 <body>
 
@@ -19,7 +21,7 @@
                 <h1>DASH<span>BOARD</span></h1>
             </div>
 
-            <div class="user-container">
+            <div class="username-container">
                 <h2>jorma</h2>
             </div>
 
@@ -27,19 +29,42 @@
     </div>
 
     <div class="left-sidebar-container">
-        <div class="tabs">
-            <p>Home</p>
+        <div class="tabs" onclick="opentab('Users')">
+            <p>Users</p>
         </div>
-        <div class="tabs">
-            <p>User's</p>
-        </div>
-        <div class="tabs">
-            <p>Report</p>
-        </div>
-        <div class="tabs">
+        <div class="tabs" onclick="opentab('')">
             <p>Activity</p>
         </div>
+        <div class="tabs" onclick="opentab('Games')">
+            <p>Games</p>
+        </div>
+        <div class="tabs" onclick="opentab('Accounts')">
+            <p>Accounts</p>
+        </div>
     </div>
+
+    <div id="Users" class="tab-users">
+        <div class="users-container-box">
+            <p>ss</p>
+        </div>
+        <div class="users-container-box">
+            <p>ss</p>
+        </div>
+    </div>
+
+    <div id="Games" class="tab-games">
+        <div class="users-container-box">
+            <p>ss</p>
+        </div>
+    </div>
+
+    <div id="Accounts" class="tab-accounts">
+        <div class="">
+            
+        </div>
+    </div>
+
+   
 
 </body>
 </html>
