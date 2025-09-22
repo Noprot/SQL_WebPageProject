@@ -1,5 +1,9 @@
 window.onload = function() {
     opentab('Users');
+
+    const userpanel = document.getElementById("Users")
+
+    console.log(userpanel)
 }
 
 
@@ -15,3 +19,7 @@ function opentab(tabId) {
 }
 const content = [".tab-games",".tab-accounts",".tab-users",".tab-activity"]
 
+
+function createNewUser() {
+    
+}
