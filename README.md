@@ -9,3 +9,5 @@ tein validaation databasen käyttäjän luomiseen client:sidilla
 ja lisäsin validaation loginaamiseen backend puolelle.
 -- 18/9
 Lisäsin backendiin salasanojem hashaamis ominaisuuden
+-- 22/9
+Tein dashboardin aloittelua ja aloitin session id / coockie juttuja
