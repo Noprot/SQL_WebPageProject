@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap">
     <link rel="stylesheet" href="dashboard.css">
 
     <script src="dashboard.js"></script>
 </head>
 <body>
+<!--for those who not logged in-->
 
     <div class="attention" id="attention"> <h1>Welcome to the Dashboard</h1>
         <p>This is a protected area. You must be logged in to view this content.</p>
     </div>
+<!--for those who not logged in-->
+
+<!--header-->
 
     <div class="header">
         <div class="inner-header">
             <div class="logo-container">
-                <h1>DASH<span>BOARD</span></h1>
+                <h1 onclick="defaultTabs()">DASH<span>BOARD</span></h1>
             </div>
 
             <div class="username-container">
@@ -27,28 +31,51 @@
 
         </div>
     </div>
+<!--header-->
 
+
+<!--left-sidepanel-->
     <div class="left-sidebar-container">
-        <div class="tabs" onclick="opentab('Users')">
-            <p>Users</p>
+
+        <div id = "default-tabs" class="default-tabs">
+            <div class="tabs" onclick="opentab('Users')">
+                <p>Users</p>
+            </div>
+            <div class="tabs" onclick="opentab('')">
+                <p>Activity</p>
+            </div>
+            <div class="tabs" onclick="opentab('Games')">
+                <p>Games</p>
+            </div>
+            <div class="tabs" onclick="opentab('Accounts')">
+                <p>Accounts</p>
+            </div>
         </div>
-        <div class="tabs" onclick="opentab('')">
-            <p>Activity</p>
-        </div>
-        <div class="tabs" onclick="opentab('Games')">
-            <p>Games</p>
-        </div>
-        <div class="tabs" onclick="opentab('Accounts')">
-            <p>Accounts</p>
+
+        <div id = "user-tabs" class="user-tabs">
+            <div class="leftsidebar-tab-username-container">
+                <p id = "leftsidebar-user-info-username">username</p>
+            </div>
+            <div class="tabs" onclick="openIUpanel('IU-tab-activity')">
+                <p>Activity</p>
+            </div>
+            <div class="tabs" onclick="openIUpanel('IU-tab-games')">
+                <p>Games</p>
+            </div>
+            <div class="tabs" onclick="openIUpanel('IU-tab-accounts')">
+                <p>Accounts</p>
+            </div>
         </div>
     </div>
+<!--left-sidepanel-->
 
-    <div id="Users" class="tab-users">
+<!--tabs-->
+    <div id="Users" class="tab-users" id = "tab"> <!--tab-->
 
         <div class="user-creation-buttons-container">
 
             <div class="new-user-creation-container">
-                <div class="new-user-creation-button">
+                <div class="new-user-creation-button"onclick="createNewUser()">
                     <p>New User+</p>
                 </div>
                 <div class="new-user-creation-button">
@@ -64,52 +91,36 @@
             
         </div>
 
-        <div class="users-info-container-box">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, doloremque dolorem nemo quos ut dolor quo voluptatibus iusto qui porro quia dolorum rerum facilis omnis atque ex vel modi! Necessitatibus.</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto, repudiandae iusto corrupti nam et minus veritatis ipsum! Rem accusantium molestias provident maxime. Vel voluptas totam veniam deserunt ea qui!</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
-        <div class="users-info-container-box">
-            <p>ss</p>
-        </div>
     </div>
 
-    <div id="Games" class="tab-games">
+    <div id="Games" class="tab-games" id = "tab"> <!--tab-->
         <div class="users-container-box">
             <p>ss</p>
         </div>
     </div>
 
-    <div id="Accounts" class="tab-accounts">
+    <div id="Accounts" class="tab-accounts" id = "tab"> <!--tab-->
         <div class="">
             
         </div>
     </div>
+    <!--inner-user-tabs-->
+
+    <div id="IU-tabs-container" class="IU-tabs-container">
+        <div class="IU-tab-activity" id="IU-tab-activity"> <!--tab-->
+
+        </div>
+        <div class="IU-tab-games" id="IU-tab-games"> <!--tab-->
+
+        </div>
+        <div class="IU-tab-accounts" id="IU-tab-accounts"> <!--tab-->
+
+        </div>
+    </div>
+
+
+
+<!--tabs-->
 
    
 

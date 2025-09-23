@@ -11,7 +11,7 @@
     
 }
 
-
+/*header---------------------------*/
 .header {
     top: 0;
     width: 100%;
@@ -26,7 +26,7 @@
 
 .inner-header{
     height: 100%;
-    background-color: red;
+    /*background-color: red;*/
     width: 95%;
     margin: 0 auto;
     display: block;
@@ -57,7 +57,7 @@
     font-weight: 400;
 }
 .logo-container:hover {
-    /*cursor: pointer;*/
+    cursor: pointer;
 }
 
 .username-container{
@@ -82,9 +82,7 @@
     scale: 1.04;
     cursor: pointer;
 }
-
-
-
+/*header---------------------------*/
 
 
 body {
@@ -92,9 +90,7 @@ body {
     background-color: rgb(26, 18, 25);
 }
 
-
-
-
+/*left-side-bar---------------------------*/
 .left-sidebar-container {
     height: 100vh;
     width: 325px;
@@ -107,6 +103,15 @@ body {
     border-right: 3px solid rgb(2, 2, 2);
     padding-top: 5px;
 }
+
+.default-tabs { 
+    display: block;
+}
+.user-tabs {
+    display: none;
+}
+
+
 .tabs{
     background-color: black;
     border-radius: 4px;
@@ -134,8 +139,10 @@ body {
     scale: 1.01;
     cursor: pointer;
 }
+/*left-side-bar---------------------------*/
 
-/*---------------------------*/
+
+/*users---------------------------*/
 .tab-users {
     width: auto;
     height: fit-content;
@@ -226,13 +233,14 @@ body {
     transition: 0.2;
     cursor: pointer;
 }
-/*-----------------*/
+/*users-info-boxes---------------------------*/
 
 .users-info-container-box {
     display: inline-flex;
     width: 250px;
     height: 100px;
-    background-color: beige;
+    background-color: rgb(52, 182, 143);
+    background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.808), rgba(0, 38, 255, 0.308));
     border-radius: 5px;
     border: 3px black solid;
 
@@ -242,16 +250,75 @@ body {
 
     z-index: 10000;
     overflow: hidden;
+    align-items: center;
+    transition: 0.2s;
+}
+.users-info-container-box p {
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: 10px;
+    
+
+    text-align: center;
+    font-weight: bold;
+    font-size:50px;
+    text-shadow: 4px 4px black,
+                -2px 2px black,
+                2px -2px black,
+                -2px -2px black
+                ;
+
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+.users-info-container-box:hover {
+    background-color: aliceblue;
+    scale: 1.04;
+    box-shadow: 3px 5px rgba(0, 0, 0, 0.534);
+    transition: 0.2s;
+}
+/*inner-users---------------------------*/
+
+.leftsidebar-tab-username-container {
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+}
+.leftsidebar-tab-username-container p {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: 1px 1px white,
+                -1px 1px white,
+                1px -1px white,
+                -1px -1px white
+                ;
+}
+/*inner-users-panels---------------------------*/
+.IU-tabs-container {
+    width: auto;
+    height: calc(100vh - 80px);
+    background: #6c3cac31;
 }
 
-
-.user-container {
+.IU-tab-activity {
+    width: auto;
+    height: 200px;
+    margin-left: 328px;
+    background-color: yellow;    
     display: block;
-    width: 250px;
-    height: 100px;
-    background-color: rgb(221, 221, 54);
+    position: inherit;
 }
 
+.IU-tab-games {
+
+}
+
+.IU-tab-accounts {
+
+}
+
+/*users---------------------------*/
 
 
 .tab-accounts {
