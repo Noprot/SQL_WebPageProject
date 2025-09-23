@@ -297,22 +297,31 @@ body {
 /*inner-users-panels---------------------------*/
 .IU-tabs-container {
     width: auto;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 82px);
+    margin-left: 328px;
+    margin-top: 2px;
     background: #6c3cac31;
 }
-
+/*inner-users-panels-activity---------------------------*/
 .IU-tab-activity {
     width: auto;
-    height: 200px;
-    margin-left: 328px;
-    background-color: yellow;    
+    height: auto;
+    background-color: rgba(255, 255, 0, 0.534);    
     display: block;
-    position: inherit;
 }
+
+.IU-inner-activity-info {
+    
+}
+
+/*inner-users-panels-games---------------------------*/
 
 .IU-tab-games {
 
 }
+
+
+ /*inner-users-panels-accounts---------------------------*/
 
 .IU-tab-accounts {
 
