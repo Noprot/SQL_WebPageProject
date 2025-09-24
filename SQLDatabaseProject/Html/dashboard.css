@@ -305,13 +305,25 @@ body {
 /*inner-users-panels-activity---------------------------*/
 .IU-tab-activity {
     width: auto;
-    height: auto;
+    height: 1000px;
     background-color: rgba(255, 255, 0, 0.534);    
-    display: block;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .IU-inner-activity-info {
-    
+    width: 1250px;
+    height: 750px;
+    border-radius: 20px;
+    background-color: rgba(122, 71, 48, 0.336);
+    display: block;
+
+    p {
+        text-align: center;
+        
+    }
 }
 
 /*inner-users-panels-games---------------------------*/
