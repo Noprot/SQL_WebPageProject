@@ -5,7 +5,7 @@ for all the inteligent people!!
 Etäpäivien työn-ylläpito lista
     D/M
 -- 12/9
-tein validaation databasen käyttäjän luomiseen client:sidilla
+tein validaation databasen käyttäjän luomiseen client-saidilla
 ja lisäsin validaation loginaamiseen backend puolelle.
 -- 18/9
 Lisäsin backendiin salasanojem hashaamis ominaisuuden
