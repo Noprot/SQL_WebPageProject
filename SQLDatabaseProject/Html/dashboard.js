@@ -36,7 +36,7 @@ function openIUpanel(IUpanelId) {
     document.getElementById("IU-tabs-container").style.display = 'block';
 
     document.querySelectorAll(IUPanels).forEach(el => el.style.display = 'none');
-    document.getElementById(IUpanelId).style.display = 'block';
+    document.getElementById(IUpanelId).style.display = 'flex';
 }
 //#endregion
 

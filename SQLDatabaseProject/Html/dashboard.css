@@ -277,7 +277,7 @@ body {
     box-shadow: 3px 5px rgba(0, 0, 0, 0.534);
     transition: 0.2s;
 }
-/*inner-users---------------------------*/
+/*IU = inner-users---------------------------*/
 
 .leftsidebar-tab-username-container {
     text-align: center;
@@ -305,26 +305,35 @@ body {
 /*inner-users-panels-activity---------------------------*/
 .IU-tab-activity {
     width: auto;
-    height: 1000px;
+    height: auto;
     background-color: rgba(255, 255, 0, 0.534);    
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+    
+
+    
+    
 }
 
-.IU-inner-activity-info {
+.IU-Inner-Tab-activity-info {
     width: 1250px;
     height: 750px;
     border-radius: 20px;
     background-color: rgba(122, 71, 48, 0.336);
-    display: block;
+    
+    margin-top: 25px;
+    margin-bottom: 25px;
 
     p {
         text-align: center;
-        
+
+        font-weight: 600;
+        color: rgb(30, 221, 87);
+        font-size: 60px;
     }
 }
+
 
 /*inner-users-panels-games---------------------------*/
 
