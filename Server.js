@@ -17,11 +17,11 @@ function GenerateNewKeys()
 }
 
 const sessionOptions = session({
-  secret: keys[Math.floor(Math.random() * keys.length)],
+  secret: "banana boat",//keys[Math.floor(Math.random() * keys.length)],
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // should be false whene in local if published change to true
+    secure: 'auto', // should be false whene in local if published change to true
     maxAge: 1000 * 60 * 60, // 1 tunti
     //httpOnly: true
     sameSite: 'lax'
@@ -35,6 +35,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 let app = express();
+
+app.use(session(sessionOptions))
 
 app.use(cors());
 app.use(express.json());

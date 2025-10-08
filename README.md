@@ -11,6 +11,6 @@ ja lisäsin validaation loginaamiseen backend puolelle.
 Lisäsin backendiin salasanojem hashaamis ominaisuuden
 -- 22/9
 Tein dashboardin aloittelua ja aloitin session id / coockie juttuja
--- 7/9
-Katsoin mitä olin tehnyt aikaisemmin koska kuka muistaisi ja pyörittelin css
 -- 7/10
+Katsoin mitä olin tehnyt aikaisemmin koska kuka muistaisi ja pyörittelin css
+-- 8/10

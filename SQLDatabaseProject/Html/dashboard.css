@@ -310,30 +310,74 @@ body {
 
     display: flex;
     justify-content: center; 
-    
-
-    
-    
+  
+}
+.IU-tab-activity-tittle {
+    font-size: 50px;
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
-.IU-Inner-Tab-activity-info {
+.IU-Inner-Tab-activity-stats-container {
     width: 1250px;
     height: 750px;
     border-radius: 20px;
     background-color: rgba(122, 71, 48, 0.336);
     
-    margin-top: 25px;
+    margin-top: 65px;
     margin-bottom: 25px;
 
-    p {
-        text-align: center;
+    display: flex;
+}
+.singles-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    
+    
 
-        font-weight: 600;
-        color: rgb(30, 221, 87);
-        font-size: 60px;
-    }
 }
 
+.singles-container p {
+    font-size: 25px;
+    font-weight: 600px;
+}
+
+.single-stat {
+    background-color: rgb(39, 206, 6);
+
+    border-radius: 7px;
+    border: 2px black solid;
+
+    height: 20%;
+    width: 95%;
+
+    margin: 14px;
+
+    display: flex;
+    justify-content: center;
+    
+    overflow: hidden;
+
+
+    p {
+        font-weight: bold;
+        font-size: 160%;
+        color: black;
+        padding-bottom: 15px;
+    }
+}
+.activity-graph {
+    background-color: white;
+    border-radius: 12px;
+    border: 3px black solid;
+    height: 65%;
+    width: 95%;
+
+    margin-left: auto;
+    margin: 25px;
+}
 
 /*inner-users-panels-games---------------------------*/
 
