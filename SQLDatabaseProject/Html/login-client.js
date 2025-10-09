@@ -30,10 +30,15 @@ window.onload = function() {
             const response = await fetch('http://localhost:3000/Login-form',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials: 'include'
+            });
+            fetch("http://localhost:3000/getSession", {
+                method: "Get",
+                credentials: "include"
             });
 
-              const result = await response.text();
+            const result = await response.text();
             showinfo(result);
         }
         catch (err) {

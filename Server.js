@@ -1,46 +1,32 @@
 const express = require('express');
 const session = require('express-session')
 
-let keys = [
-  "sjhdsadasjhksdajkhsdhkjdhjksajdkhsaweadsadasdvfnvnv",
-  "sdjopjdsahduahcsbhrbsugbrgvfpchauicbfefesvsf3424235",
-  "dopahciughavceuapso+zokp mx x zhdvuydgacpafdfsdfsfs",
-  "apoåcaiuohiarbjhbvdfcyrzf zhbdxivpåuviuxbchsbcugczusgcjhgz",
-  "sdjopjdsahduahcsbhrbsugbrgvfpchauicbfefesvsf3424235",
-  "dopahciughavceuapso+zokp mx x zhdvuydgacpafdfsdfsfs",
-  "apoåcaiuohiarbjhbvdfcyrzf zhbdxivpåuviuxbchsbcugczusgcjhgz"
-]
-
-function GenerateNewKeys()
-{
-  keys = keys.map(() => crypto.randomUUID().toString())
-}
-
-const sessionOptions = session({
-  secret: "banana boat",//keys[Math.floor(Math.random() * keys.length)],
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: 'auto', // should be false whene in local if published change to true
-    maxAge: 1000 * 60 * 60, // 1 tunti
-    //httpOnly: true
-    sameSite: 'lax'
-  }
-});
+const cors = require('cors');
 
 const mysql = require('mysql2');
-const cors = require('cors');
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 let app = express();
 
-app.use(session(sessionOptions))
 
-app.use(cors());
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true })); // if data comes from form and not JSON from client / url
+app.use(cors({
+  origin: 'http://127.0.0.1:5500',
+  credentials: true
+}));
+app.use(session({//session optios ---
+  secret: "banana boat",//keys[Math.floor(Math.random() * keys.length)],
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // should be false whene in local if published change to true
+    maxAge: 1000 * 60 * 60, // 1 tunti
+    //httpOnly: true
+    sameSite: 'lax'
+  }
+}));
 
 // Connect to MySQL (XAMPP) or just connection by manual MySQL manual start
 let dbcon = mysql.createConnection({
@@ -107,14 +93,22 @@ app.post("/Login-form", (req, res) => {
       {
         console.log(`user [${result[0].username}] succesfully logged in`);
         LogLoginDateToHistory(result[0].userID)
+        req.session.userID = result[0].userID;
+        res.send(`Login successful.`);
       }
       else
       {
+
         return console.log(`login attempt on user ${result[0].username}`);
       }
     });  
   })
 })
+
+app.get("/getSession", (req) => {
+  const userID = req.session.userID
+  console.log(userID)
+});
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
 
