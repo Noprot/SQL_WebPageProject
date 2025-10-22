@@ -17,3 +17,5 @@ Katsoin mitä olin tehnyt aikaisemmin koska kuka muistaisi ja pyörittelin css.
 yritin integroid sessioneita koko päivän.
 --9/10
 sain session integroitua ja pyörittelin teemoja.
+--22/10
+tein jamkin palautuksia kasaan
