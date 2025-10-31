@@ -2,6 +2,8 @@
 My Database Password - dgj321kj4yu!kjqdhjadsddjakh!hjkdas
 for all the inteligent people!!
 
+osa isompaa projectia ei vielä valmis.
+
 Etäpäivien työn-ylläpito lista
     D/M
 -- 12/9

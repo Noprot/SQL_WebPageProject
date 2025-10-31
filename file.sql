@@ -109,3 +109,10 @@ on delete no action
 on update cascade
 );
 -- adding test data
+insert into platforms(platformName) values
+("EpicGames"),
+("Steam"),
+("Xbox"),
+("Ubisoft"),
+("Electronic Arts")
+--
